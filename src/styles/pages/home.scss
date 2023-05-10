@@ -1,3 +1,113 @@
 main{
     display: flex;
 }
+
+.profile{
+    width: 90%;
+    margin: 50px;
+    &__hello{
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 24px;
+        margin-bottom: 40px;
+        span{
+            color: red;
+        }
+    }
+    &__congrats{
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    &__data-container{
+        width: 100%;
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    &__data-charts{
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    &__charts{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    &__nutritionCard{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+}
+
+.nutriCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 250px;
+    height: 125px;
+    padding: 0 20px;
+    border-radius: 5px;
+    background-color: #FBFBFB;
+    
+    &__img-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        border-radius: inherit;
+    }
+    &__img-Calories{
+        background-color: rgba(255, 0, 0, 0.1);
+    }
+    &__img-Proteines{
+        background-color: rgba(74, 184, 255, 0.1);
+    }
+    &__img-Glucides{
+        background-color: rgba(249, 206, 35, 0.1);
+    }
+    &__img-Lipides{
+        background-color: rgba(253, 81, 129, 0.1);
+    }
+    &__desc{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: left;
+        margin: auto auto auto 35px;
+        gap: 5px;
+        overflow: hidden;
+        &-info{
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        &-name{
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+            color: rgba(116, 121, 140, 1);
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+}
+
+.chart{
+    width: 100%;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
