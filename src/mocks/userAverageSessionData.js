@@ -1,4 +1,4 @@
-[
+export const USER_AVG_SESSION_DATA = [
     {
         "userId": 12,
         "sessions": [

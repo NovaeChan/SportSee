@@ -1,4 +1,4 @@
-[
+export const USER_PERFORMANCE_DATA = [
     {
         "userId": 12,
         "kind": {
