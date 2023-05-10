@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { useEffect, useState } from 'react';
 
 import {USER_DATA} from '../mocks/userData.js';
 import {USER_ACTIVITY_DATA} from '../mocks/userActivityData.js'

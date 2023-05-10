@@ -17,8 +17,8 @@ const Home = () => {
     
     const [userData, setUserData] = useState({});
     const [userActivityData, setUserActivityData] = useState({})
-    const [userPerformance, setUserPerformance] = useState({})
-    const [userAverageSession, setUserAverageSession] = useState({})
+    // const [userPerformance, setUserPerformance] = useState({})
+    // const [userAverageSession, setUserAverageSession] = useState({})
 
     const mock = true;
 
@@ -29,7 +29,7 @@ const Home = () => {
         getData(mock, 12, "activity").then(userActivity => {
             setUserActivityData(userActivity);
         });
-    }, [])
+    }, [mock])
     
     if(!userData){
         console.error("Une erreur est survenue lors du chargement des données");
