@@ -1,17 +1,18 @@
 import React from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
+import '../../styles/components/_barsChart.scss'
+
 const BarsChart = ({data}) => {
     return (
-        <div>
-            <div>
-                <p>Activité quotidienne</p>
-                <ul>
-                    <li>Poids (kg)</li>
-                    <li>Calories (KCal)</li>
+        <div className='barsChart'>
+            <div className='barsChart__legend'>
+                <p className='barsChart__activity'>Activité quotidienne</p>
+                <ul className='barsChart__legend-list'>
+                    <li className='barsChart__legend-item'>Poids (kg)</li>
+                    <li className='barsChart__legend-item'>Calories (KCal)</li>
                 </ul>
             </div>
-            <h2>BarsChart</h2>
             <ResponsiveContainer>
                 <BarChart>
                     <CartesianGrid strokeDasharray="3 3">
