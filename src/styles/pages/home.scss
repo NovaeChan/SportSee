@@ -123,4 +123,20 @@ main{
     border-radius: 5px;
 }
 
+.radarChart{
+    background: #282D30;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+}
+
+.radar-chart {
+    width: inherit;
+    height: inherit;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 

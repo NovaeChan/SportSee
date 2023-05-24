@@ -1,33 +1,48 @@
 import React from 'react';
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 import '../../styles/components/_barsChart.scss'
 
-const BarsChart = ({data}) => {
+const formatDataBarsChart = (data) => {
+    let formatedSessions = [];
+    for(let i = 0; i < data.sessions.length; i++){
+      const sessions = data.sessions[i];
+      const { kilogram, calories } = sessions;
+    
+      formatedSessions.push({
+        day: i++,
+        kg: kilogram,
+        calories: calories
+      })
+    }
+    return formatedSessions
+  }
+  
+const  BarsChart = ({data}) => {
+    const formatedData = formatDataBarsChart(data);
     return (
-        <div className='barsChart'>
-            <div className='barsChart__legend'>
-                <p className='barsChart__activity'>Activité quotidienne</p>
-                <ul className='barsChart__legend-list'>
-                    <li className='barsChart__legend-item'>Poids (kg)</li>
-                    <li className='barsChart__legend-item'>Calories (KCal)</li>
-                </ul>
-            </div>
-            <ResponsiveContainer>
-                <BarChart>
-                    <CartesianGrid strokeDasharray="3 3">
-                    <XAxis dataKey="name"/>
-                    <YAxis orientation='right'/>
-                    <Tooltip />
-                    </CartesianGrid>
-                    <Bar dataKey="kg" radius={[10, 10, 0, 0]}
-                    barSize={10}
-                    />
-                    <Bar />
-                </BarChart>
-            </ResponsiveContainer>
-        </div>
-    );
-};
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            width={500}
+            height={300}
+            data={formatedData}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="day" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="kg" fill="#8884d8" />
+            <Bar dataKey="calories" fill="#82ca9d" />
+          </BarChart>
+        </ResponsiveContainer>
+      );
+    }
 
 export default BarsChart;

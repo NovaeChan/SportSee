@@ -1,55 +1,46 @@
 import React from 'react';
-import { Radar, RadarChart as RadarC, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart as RadarC, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 
-const data = [
-    {
-      subject: 'Math',
-      A: 120,
-      B: 110,
-      fullMark: 150,
-    },
-    {
-      subject: 'Chinese',
-      A: 98,
-      B: 130,
-      fullMark: 150,
-    },
-    {
-      subject: 'English',
-      A: 86,
-      B: 130,
-      fullMark: 150,
-    },
-    {
-      subject: 'Geography',
-      A: 99,
-      B: 100,
-      fullMark: 150,
-    },
-    {
-      subject: 'Physics',
-      A: 85,
-      B: 90,
-      fullMark: 150,
-    },
-    {
-      subject: 'History',
-      A: 65,
-      B: 85,
-      fullMark: 150,
-    },
-];
+const formatDataRadarChart = (data) => {
+  let dataRadarChart = []
+  for(let i = 0; i < data.data.length; i++){
+    const perf = data.data[i];
+    dataRadarChart.push({
+      subject: data.kind[perf.kind],
+      grade: perf.value,
+      fullMark: 250
+    })
+  }
+  return dataRadarChart
+}
 
-const RadarChart = () => {
-    return (
-        <ResponsiveContainer width="100%" height="100%">
-        <RadarC cx="50%" cy="50%" outerRadius="80%" data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis />
-          <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+const RadarChart = ({data}) => {
+  const formatedData = formatDataRadarChart(data);
+  return (
+    <div className="radarChart">
+        <RadarC 
+          outerRadius={90}
+          width={300}
+          height={300} 
+          data={formatedData}
+          background={{fill: "#282D30"}}
+        >
+          <PolarGrid gridType="polygon" radialLines={false} />
+          <PolarAngleAxis dataKey="subject" tick={{fill: "white", fontSize: 15}}/>
+          <PolarRadiusAxis
+            tick={false}
+            axisLine={false}
+          />
+          <Radar
+            name="Mike"
+            dataKey="grade"
+            stroke="#8884d8"
+            fill="red"
+            fillOpacity={0.7}
+          />
         </RadarC>
-      </ResponsiveContainer>    );
+    </div>
+  );
 };
 
 export default RadarChart;

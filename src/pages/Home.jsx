@@ -71,14 +71,14 @@ const Home = () => {
                             <div className='chart barChart'>
                                 <BarsChart data={userActivityData}/>
                             </div>
-                            <div className='char lineChart'>
+                            <div className='chart lineChart'>
                                 <LineChart data={userAverageSession}/>
                             </div>
-                            <div>
-                                <RadarChart />
+                            <div className='chart radarChart'>
+                                <RadarChart data={userPerformance}/>
                             </div>
                             <div>
-                                <RadialChart />
+                                <RadialChart data={userData}/>
                             </div>
                         </article>
                         <aside className="profile__nutritionCard">
