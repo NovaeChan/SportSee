@@ -39,7 +39,7 @@ const Home = () => {
             setUserAverageSession(userAvg);
             setIsLoading(false);
         };
-        data(mock, 12);
+        data(mock, 18);
         // getData(mock, 12, "").then(userD => {
         //     setUserData(userD);
         // });

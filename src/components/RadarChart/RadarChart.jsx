@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radar, RadarChart as RadarC, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+import { Radar, RadarChart as RadarC, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 const formatDataRadarChart = (data) => {
   let dataRadarChart = []
@@ -44,3 +44,4 @@ const RadarChart = ({data}) => {
 };
 
 export default RadarChart;
+
