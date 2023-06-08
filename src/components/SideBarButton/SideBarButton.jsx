@@ -1,5 +1,11 @@
 import React from 'react';
 
+/**
+ * 
+ * @param {*} param0 
+ * @param {*} param1 
+ * @returns 
+ */
 const SideBarButton = ({image}, {iconType}) => {
     return (
         <div className='sideBar__icon'>

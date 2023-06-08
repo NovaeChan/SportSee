@@ -9,7 +9,6 @@ import swimming from '../../assets/swimming.png';
 import cycling from '../../assets/cycling.png';
 import fitness from '../../assets/fitness.png'
 
-
 const SideBar = () => {
     const currentYear = new Date().getFullYear();
     return (

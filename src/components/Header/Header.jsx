@@ -4,6 +4,10 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo.png'
 import '../../styles/components/_header.scss'
 
+/**
+ * 
+ * @returns { HTMLElement }
+ */
 const Header = () => {
     return (
         <header className='header'>

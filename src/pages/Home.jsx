@@ -17,46 +17,38 @@ import '../styles/pages/home.scss'
 
 const Home = () => {
     document.title = "SportSee - Home"
-    
+
     const [userData, setUserData] = useState({});
     const [userActivityData, setUserActivityData] = useState({})
     const [userPerformance, setUserPerformance] = useState({})
     const [userAverageSession, setUserAverageSession] = useState({})
 
     const [isLoading, setIsLoading] = useState(true);
-    const mock = true;
+    const mock = false;
 
     useEffect( () => {
         const data = async (mock, userId) => {
             const userD = await getData(mock, userId, "");
             const userAct = await getData(mock, userId, "activity");
             const userPerf = await getData(mock, userId, "performance");
-            const userAvg = await getData(mock, userId, "average");
-            
+            const userAvg = await getData(mock, userId, "average-sessions");
+
             setUserData(userD);
             setUserActivityData(userAct);
             setUserPerformance(userPerf);
             setUserAverageSession(userAvg);
             setIsLoading(false);
         };
-        data(mock, 18);
-        // getData(mock, 12, "").then(userD => {
-        //     setUserData(userD);
-        // });
-        // getData(mock, 12, "activity").then(userAct => {
-        //     setUserActivityData(userAct);
-        // });
-        // getData(mock, 12, "performance").then(userPerf => {
-        //     setUserPerformance(userPerf);
-        // });
-        // getData(mock, 12, "average").then(userAvg => {
-        //     setUserAverageSession(userAvg);
-        // })
+        data(mock, 12);
     }, [mock])
     
     if(!userData || !userActivityData || !userPerformance || !userAverageSession){
         console.error("Une erreur a eu lieu lors du chargement des données");
-        return null;
+        return(
+            <div className='error'>
+                <h2>Une erreur est survenue lors du chargement des données</h2>
+            </div>
+        );
     }
 
     return (

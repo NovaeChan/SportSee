@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import { useEffect, useState } from 'react';
 
 import {USER_DATA} from '../mocks/userData.js';
 import {USER_ACTIVITY_DATA} from '../mocks/userActivityData.js'
@@ -15,7 +14,7 @@ async function getData(mock, userId, dataType){
                 break;
             case "performance":
                 return USER_PERFORMANCE_DATA.find((user) => user.userId === parseInt(userId));
-            case "average":
+            case "average-sessions":
                 return USER_AVG_SESSION_DATA.find((user) => user.userId === parseInt(userId));
             default :
                 return USER_DATA.find((user) => user.id === parseInt(userId));
@@ -23,8 +22,8 @@ async function getData(mock, userId, dataType){
     }
     else {
         try {
-            const response = await axios.get(`http://localhost:1234/${mock}/${userId}/${dataType}`)
-            return response.data
+            const response = await axios.get(`http://localhost:3000/user/${userId}/${dataType}`)
+            return response.data.data
         } catch (error) {
             console.error(error)
         }

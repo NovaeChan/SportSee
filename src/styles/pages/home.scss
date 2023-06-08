@@ -4,7 +4,7 @@ main{
 
 .profile{
     width: 90%;
-    margin: 50px;
+    margin: 50px 50px 0px 50px;
     &__hello{
         font-weight: 500;
         font-size: 48px;
@@ -29,7 +29,10 @@ main{
     &__data-charts{
         width: 100%;
         display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         gap: 30px;
+        justify-content: space-between;
     }
     &__charts{
         display: grid;
@@ -37,6 +40,7 @@ main{
         grid-template-columns: repeat(3,1fr);
         grid-gap: 30px;
         gap: 30px;
+        width: 100%;
     }
     &__nutritionCard{
         display: flex;
@@ -111,9 +115,76 @@ main{
     overflow: hidden;
 }
 
+.barsChart__wrapper{
+    width: 100%;
+    height: 320px;
+    position: relative;
+    z-index: 1;
+    background-color: #fbfbfb;
+    margin-bottom: 25px;
+}
+
+.barsChart__titleWrapper{
+    display: flex;
+    flex-direction: row;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.barChart__title{
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: black;
+}
+
+.barsChart__legend{
+    font-size: 15px; 
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    color: black;
+    &-item{
+        position: relative;
+        position: relative;
+
+        margin-left: 55px;
+        margin-top: 15px;
+    }
+}
+
+.barsChart__legend-item--grey-dot{
+    &::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        bottom: 20%;
+        aspect-ratio: 1/1;
+        height: 10px;
+        background-color: #282D30;
+        border-radius: 50%;
+    }
+}
+.barsChart__legend-item--red-dot{
+    &::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        bottom: 20%;
+        aspect-ratio: 1/1;
+        height: 10px;
+        background-color: red;
+        border-radius: 50%;
+    }
+}
+
 .barChart{
+    margin-top: 20px;
     grid-column-end: span 3;
-    max-height: 355px;
+    max-height: 400px;
+    min-width: 835px;
 }
 
 .lineChart{
@@ -129,6 +200,11 @@ main{
     border-radius: 5px;
 }
 
+.radarChart, .radialChart, .lineChart{
+    height: 300px;
+    width: 300px;
+}
+
 .radar-chart {
     width: inherit;
     height: inherit;
@@ -139,4 +215,18 @@ main{
     flex-direction: column;
 }
 
+.tooltip {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 63px;
+    width: 39px;
+    font-size: 7px;
+    background-color: #E60000;
+    color: #FFFFFF
+  }
+
+.error{
+    margin: auto;
+}
 

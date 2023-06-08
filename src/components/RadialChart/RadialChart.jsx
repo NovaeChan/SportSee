@@ -1,18 +1,29 @@
 import React, { PureComponent } from 'react';
-import { RadialBarChart, RadialBar, ResponsiveContainer, Legend } from 'recharts';
+import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
+import PropTypes from "prop-types"
+import formatData from "../../utils/formatData"
 
+/**
+ * 
+ * @param {*} score 
+ * @returns 
+ */
 const formatedDataRadial = (score) => {
   return [{ value : score * 100}];
 }
 
+/**
+ * 
+ */
 export default class RadarChart extends PureComponent {
   render(){
     const score = this.props.data?.todayScore ? this.props.data?.todayScore : this.props.data?.score
-    const formatedData = formatedDataRadial(score) 
+    const format = new formatData()
+    const formatedData = format.formatedDataRadial(score) 
     const perfValue = score * 100
     const startAngle = 90;
       return (
-        <>
+        <div className='radialChart'>
           <ResponsiveContainer width="100%" height="100%">
           <RadialBarChart
             width={330}
@@ -36,38 +47,20 @@ export default class RadarChart extends PureComponent {
               fill="#E60000"
               cornerRadius={100}      
             />
-            <text x="60" y="40" dominantBaseline="hanging" fontSize="26" fontWeight="bold">{perfValue}% de votre objectif</text>
+            <text textAnchor="middle" fontSize={15} fontWeight={600}>
+              <tspan x="50%" y="50%" fontSize={22}>{perfValue}%</tspan>
+              <tspan x="50%" y="65.5%" fill={'#74798c'}>de votre </tspan>
+              <tspan x="50%" y="77%" fill={'#74798c'}>objectif</tspan>
+            </text>
           </RadialBarChart>
           </ResponsiveContainer>
-        </>
+        </div>
       );
   }
 
-  }
+}
 
-
-// export default RadialChart;
-
-
-
-// export default class RadarChart extends PureComponent {
-//   static demoUrl = 'https://codesandbox.io/s/simple-radial-bar-chart-qf8fz';
-
-//   render() {
-//     return (
-//       <ResponsiveContainer width="100%" height="100%">
-//         <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
-//           <RadialBar
-//             minAngle={15}
-//             label={{ position: 'insideStart', fill: '#fff' }}
-//             background
-//             clockWise
-//             dataKey="uv"
-//           />
-//           <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} />
-//         </RadialBarChart>
-//       </ResponsiveContainer>
-//     );
-//   }
-// }
+RadarChart.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 

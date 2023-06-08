@@ -1,5 +1,12 @@
 import { LineChart as LineC, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import PropTypes from "prop-types"
+import formatData from "../../utils/formatData"
 
+/**
+ * 
+ * @param { Object } data 
+ * @returns { Array }
+ */
 const formatDataLineChart = (data) => {
   const sessionsDay = ["L", "M", "M", "J", "V", "S", "D"];
   let formatedSessions = [];
@@ -15,20 +22,36 @@ const formatDataLineChart = (data) => {
   return formatedSessions
 }
 
+/**
+ * 
+ * @param { Object } param0 
+ * @returns { HTMLElement }
+ */
 const LineChart = ({data}) => {
-  const formatedSessions = formatDataLineChart(data);
+  const format = new formatData();
+  const formatedSessions = format.formatDataLineChart(data);
     return (
       <>
-        <h3 className='lineChart__title'>Durée moyenne des sessions</h3>
         <ResponsiveContainer width="100%" height="100%">
           <LineC
               width={500}
               height={300}
               data={formatedSessions}
-              margin={{
-                  top: 60, right: 20, left: 20, bottom: 5
-              }}
+              margin={{top: 70, right: 20, bottom: 10, left: 20}}
               >
+              <text
+                x="15%"
+                y="15%"
+                fontSize={14}
+                fontWeight={500}
+                width={100}
+                fill="#ffffffa4"
+              >
+                Durée moyenne des
+                <tspan x="15%" y="27%">
+                  sessions
+                </tspan>
+              </text>
               <XAxis dataKey="day" axisLine={false} tickLine={false} stroke='white'/>
               <Tooltip filterNull={false} separator="" 
               itemStyle={{
@@ -63,3 +86,7 @@ const LineChart = ({data}) => {
 }
 
 export default LineChart
+
+LineChart.propTypes = {
+  data: PropTypes.object.isRequired,
+}

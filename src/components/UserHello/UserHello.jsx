@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * 
+ * @returns 
+ */
 const UserInfos = () => {
     return (
         <div>

@@ -1,6 +1,15 @@
 import React from 'react';
-import { Radar, RadarChart as RadarC, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart as RadarC, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+import PropTypes from "prop-types"
+import formatData from "../../utils/formatData"
 
+
+
+/**
+ * 
+ * @param {*} data 
+ * @returns 
+ */
 const formatDataRadarChart = (data) => {
   let dataRadarChart = []
   for(let i = 0; i < data.data.length; i++){
@@ -14,8 +23,14 @@ const formatDataRadarChart = (data) => {
   return dataRadarChart
 }
 
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 const RadarChart = ({data}) => {
-  const formatedData = formatDataRadarChart(data);
+  const format = new formatData();
+  const formatedData = format.formatDataRadarChart(data);
   return (
     <div className="radarChart">
         <RadarC 
@@ -26,7 +41,15 @@ const RadarChart = ({data}) => {
           background={{fill: "#282D30"}}
         >
           <PolarGrid gridType="polygon" radialLines={false} />
-          <PolarAngleAxis dataKey="subject" tick={{fill: "white", fontSize: 15}}/>
+          <PolarAngleAxis dataKey="subject"
+            axisLine={false}
+            tickLine={false}
+            tick={{
+              dy: 4,
+              fill: '#fff',
+              fontSize: 12,
+            }}
+          />
           <PolarRadiusAxis
             tick={false}
             axisLine={false}
@@ -44,4 +67,8 @@ const RadarChart = ({data}) => {
 };
 
 export default RadarChart;
+
+RadarChart.propTypes = {
+  data: PropTypes.object.isRequired,
+}
 

@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * 
+ * @param {*} param0 
+ * @returns 
+ */
 const NutritionCard = ({icon, dataType, dataCard, id}) => {
     return (
         <div className='nutriCard' key={id}>
