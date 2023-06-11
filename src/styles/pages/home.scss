@@ -24,7 +24,7 @@ main{
         margin-top: 50px;
         display: flex;
         justify-content: space-between;
-        gap: 30px;
+        gap: 30px;   
     }
     &__data-charts{
         width: 100%;
@@ -48,6 +48,12 @@ main{
         align-items: center;
         gap: 50px;
     }
+    &__charts-miniGraph{
+        display: flex;
+        justify-content: space-between;
+        grid-column-end: span 3;
+    }
+    
 }
 
 .nutriCard{
@@ -230,3 +236,71 @@ main{
     margin: auto;
 }
 
+@media screen and (max-width: 1430px){
+    .profile__data-charts{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile__charts{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile__nutritionCard{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .nutriCard{
+        width: 40%;
+    }
+    .barChart{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .profile{
+   
+        &__data-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
+        &__charts {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        }
+        &__charts-miniGraph{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        &__nutritionCard {
+            flex-wrap: wrap;
+        }
+    }
+}
+  
+@media screen and (max-width: 1024px) {
+    .profile {
+        display: flex;
+        flex-direction: column;
+
+        &__data-charts{
+            flex-direction: column;
+        }
+        &__charts {
+        width: 690px;
+        margin: 0;
+        }
+        &__nutritionCard {
+            margin: auto;
+            flex-wrap: wrap;
+            width: 690px;
+        }
+    }
+}

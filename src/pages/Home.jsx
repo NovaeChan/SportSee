@@ -63,14 +63,16 @@ const Home = () => {
                             <div className='chart barChart'>
                                 <BarsChart data={userActivityData}/>
                             </div>
-                            <div className='chart lineChart'>
-                                <LineChart data={userAverageSession}/>
-                            </div>
-                            <div className='chart radarChart'>
-                                <RadarChart data={userPerformance}/>
-                            </div>
-                            <div>
-                                <RadialChart data={userData}/>
+                            <div className="profile__charts-miniGraph">
+                                <div className='chart lineChart'>
+                                    <LineChart data={userAverageSession}/>
+                                </div>
+                                <div className='chart radarChart'>
+                                    <RadarChart data={userPerformance}/>
+                                </div>
+                                <div>
+                                    <RadialChart data={userData}/>
+                                </div>
                             </div>
                         </article>
                         <aside className="profile__nutritionCard">
