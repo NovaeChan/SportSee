@@ -248,7 +248,7 @@ main{
     .profile__nutritionCard{
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
     .nutriCard{
         width: 40%;
